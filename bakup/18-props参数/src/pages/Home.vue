@@ -7,17 +7,8 @@
 </template>
 
 <script lang='ts' name='Home' setup>
-import { onMounted } from "vue";
-import { useRouter } from "vue-router";
+// import { ref, reactive, toRefs } from 'vue'; // 对象响应式
 
-const router = useRouter()
-
-// onMounted(() => {
-//     setTimeout(() => {
-//         //在此处实现路由跳转
-//         router.push('/news')
-//     }, 3000);
-// })
 </script>
 
 <style scoped>

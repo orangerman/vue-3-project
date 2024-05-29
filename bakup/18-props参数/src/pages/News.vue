@@ -3,7 +3,11 @@
     <div class="news">
         <ul>
             <li v-for="news in newsList">
-                <button @click="showDetail(news)">查看新闻</button>
+                <!-- param 参数
+                    1. 纯字符串
+                 -->
+
+                <!-- <RouterLink to="/news/detail/haha/aa/scs" :key="news.id">{{ news.title }}</RouterLink> -->
                 <RouterLink :to="{
                     name: 'xiang',
                     query: {
@@ -22,30 +26,15 @@
 </template>
 
 <script lang='ts' name='News' setup>
-import { reactive } from 'vue'; // 对象响应式
-import { useRouter } from 'vue-router';
-import type { NewsInter } from "@/types";
+import { ref, reactive } from 'vue'; // 对象响应式
+
+
 
 const newsList = reactive([
     { id: '111', title: '世界上最大的鱼', content: '鱼' },
     { id: '111', title: '世界上最小的鱼', content: '鱼' },
     { id: '111', title: '世界上最大的乌龟', content: '鱼' }
 ])
-
-const router = useRouter()
-
-
-function showDetail(detail: NewsInter) {
-    router.push({
-        name: 'xiang',
-        query: {
-            id: detail.id,
-            title: detail.title,
-            content: detail.content
-        }
-    })
-}
-
 
 </script>
 
