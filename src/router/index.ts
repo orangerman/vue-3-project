@@ -1,47 +1,52 @@
-import { createRouter, createWebHistory } from "vue-router";
-import Home from "@/pages/Home.vue";
-import News from "@/pages/News.vue";
-import About from "@/pages/About.vue";
-import Detail from "@/pages/Detail.vue";
+import { createRouter, createWebHistory } from 'vue-router'
+import Props from '@/pages/01_props/Father.vue'
+import Event from '@/pages/02_custom-event/Father.vue'
+import Bus from '@/pages/03_mitt/Father.vue'
+import Model from '@/pages/04_v-model/Father.vue'
+import AttrsListeners from '@/pages/05_$attrs/Father.vue'
+import RefChildrenParent from '@/pages/06_$refs-$parent/Father.vue'
+import ProvideInject from '@/pages/07_provide-inject/Father.vue'
+import Pinia from '@/pages/08_pinia/Father.vue'
+import Slot from '@/pages/09_slot/Father.vue'
 
-const router = createRouter({
-    history: createWebHistory(),
-    routes: [
-        {
-            path: '/',
-            redirect: '/home'
-        },
-        {
-            name: 'zhuye',
-            path: '/home',
-            component: Home
-        },
-        {
-            name: 'xinwen',
-            path: '/news',
-            component: News,
-            children: [
-                {
-                    name: 'xiang',
-                    path: 'detail',
-                    // path: 'detail/:id/:title/:content?',
-                    component: Detail,
-                    // 第一种写法 props 只能实现params的方式
-                    // props: true
-
-                    // 第二种方式，可以自己决定传参 ,router.params || router.query
-                    props(router) {
-                        return router.query
-                    }
-                }
-            ]
-        },
-        {
-            name: 'guanyu',
-            path: '/about',
-            component: About
-        }
-    ]
-});
-
-export default router;
+export default createRouter({
+	history: createWebHistory(),
+	routes: [
+		{
+			path: '/props',
+			component: Props
+		},
+		{
+			path: '/event',
+			component: Event
+		},
+		{
+			path: '/mitt',
+			component: Bus
+		},
+		{
+			path: '/model',
+			component: Model
+		},
+		{
+			path: '/attrs',
+			component: AttrsListeners
+		},
+		{
+			path: '/ref-parent',
+			component: RefChildrenParent
+		},
+		{
+			path: '/provide-inject',
+			component: ProvideInject
+		},
+		{
+			path: '/pinia',
+			component: Pinia
+		},
+		{
+			path: '/slot',
+			component: Slot
+		},
+	]
+})
